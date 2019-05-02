@@ -1,0 +1,2 @@
+"0","#plotting binomial cumulative distribution with trials as 5 and probability of success as 0.5"
+"0","plot(bin_cumulative(5,0.5))"

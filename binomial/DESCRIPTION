@@ -1,0 +1,17 @@
+Package: binomial
+Type: Package
+Title: Binomial package
+Version: 0.1.0
+Author: sonia park
+Maintainer: The package maintainer <yes.soyeon@berkeley.edu>
+Description: Provides functions for binomial distribution such as calculating probability of having certain successes in certain trials and generating plots and data frame of the probability distribution.
+License: GPL-2
+Encoding: UTF-8
+Collate:
+    function.R
+Suggests: knitr,
+    rmarkdown,
+    testthat
+LazyData: true
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr

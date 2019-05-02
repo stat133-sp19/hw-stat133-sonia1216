@@ -1,0 +1,112 @@
+---
+title: "Binomial Package Instruction"
+author: "Sonia Park"
+date: "4/30/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(binomial) 
+```
+
+## Binomial Package
+
+The package `"binomial"` is a minimal implementation for calculating summary measures such as mean, skewness, variance, kurtosis, and mode in binomial distribution. This package also helps visualize probability distribution and cumulative distribution of certain successes in certain trials through histogram and graph. 
+
+
+## Calculating combinations 
+
+The first step is to implement bin_choose() function to find the number of combinations in which k successes can occur in n trials. The format of this function is `bin_choose(n, k)`. Usually, people use it with success as one vector with a length of 1. 
+
+```{r}
+#combinations in which there are 4 trials and two successes
+bin_choose(4,2)
+
+```
+However, you could also use it with success as a vector with length bigger than 1. 
+
+```{r}
+#combinations in which there are 4 trials and 1 success, 2 success, 3 success
+bin_choose(4, 1:3)
+```
+
+
+## Calculating probability
+Other main function that you would encounter is `bin_probability(success, trials, prob)` that takes in number of successes, number of trials, and probability of success as its inputs. 
+We will have a certain amount of trials with a given number of success assuming a certain probability of success from the input. The output of the function will be a vector of length 1 or greater depending on the length of success vector that calculates the overall probability given the inputted condition. 
+```{r}
+#probability of getting 3 successes in 6 trials assuming probability of success is 0.5
+bin_probability(success=3, trial=6, prob=0.5)
+#probabilities of getting 5 or less successes in 7 trials assuming probability of success is 0.6
+bin_probability(success=0:5, trial=7, prob=0.6)
+```
+
+## Generating binomial distribution data frames
+There are two functions that generate distribution data frames: `bin_distribution(trials, prob)`, `bin_cumulative(trials, prob)`. 
+
+For `bin_distribution(trials, prob)`, there will be a data frame that has success column as first column and probabilty column as second column. It will have a class of "bindis" and "data.frame". Success column will have numbers ranging from 0 to the number of trials.
+
+For `bin_cumulative(trials, prob)`, there will be a data frame that has another column named cumulative. It contains cumulative probability. Output will have primary class of "bincum" and another class of "data.frame".
+```{r}
+#binomial probability distribution with 6 trials and probability of success as 0.7
+bin_distribution(trials=6, prob=0.7)
+```
+```{r}
+bin_cumulative(trials=6, prob=0.7)
+```
+
+## Generating binomial distribution plots
+There are two plot functions in this package: `plot.bincum(trials, prob)`, `plot.bindis(trials, prob)`. 
+
+For `plot.bincum(trials, prob)`, it takes in the distribution table from `bin_cumulative(trials, prob)` as an input. It displays a graph for the cumulative distribution in an object "bincum".Since it takes "bincum" object, you can plot this object with `plot()`.
+
+For `plot.bindis(trials, prob)`,it takes in the distribution table from `bin_distribution(trials, prob)` as an input. It displays a barplot for probability histogram of a binomial distribution object "bindis". Since this  takes the 'bindis' object, so you can plot this object with `plot()`.
+
+```{r}
+#plotting binomial cumulative distribution with trials as 5 and probability of success as 0.5
+plot(bin_cumulative(5,0.5))
+#plotting binomial probability distribution with trials as 5 and probability of success as 0.5
+plot(bin_distribution(5, 0.5))
+```
+
+## Creating a binomial variable object
+You can create a binomial variable object from implementing `bin_variable(trials, prob)`. It will return an object of class "binvar" that is a list with named elements of trials and probability. 
+```{r}
+#assigning object to be a binomial variable object with trials as 3 and probability of success as 0.2
+object<-bin_variable(3,0.2)
+```
+
+## Helpful methods that could be used on binomial variable object
+After creating an object, there will be multiple methods which you will use on this object.
+To know the content of an object "binvar", you can use `print.binvar()`. Since it takes in "binvar" object, you can type the name of binomial variable object.
+To know the summary description of an object "binvar", you can use `print.summary.binvar()`.Since it takes in "binvar" object, you can just use `summary()`.
+```{r}
+
+object
+
+summary(object)
+```
+```{r}
+
+```
+
+## Summary measure functions
+From the summary of the variable object, we can see what the  mean, skewness, variance, kurtosis, and mode in binomial distribution are. However, we can also compute each ot the measures through following functions: `bin_mean()`, `bin_variance()`,`bin_mode()`, `bin_skewness()`, `bin_kurtosis()`. All of these functions take in number of trials and probability of success. 
+```{r}
+bin_mean(5,0.4)
+bin_variance(5,0.4)
+bin_mode(5,0.4)
+bin_skewness(5,0.4)
+bin_kurtosis(5,0.4)
+```

@@ -1,0 +1,2 @@
+"0","B_problem_dat<-data.frame(egg_weight,chick_weight)"
+"0","B_problem_dat%>%ggplot(aes(x=egg_weight, y=chick_weight))+geom_point()+geom_smooth(method=lm,se=FALSE)"

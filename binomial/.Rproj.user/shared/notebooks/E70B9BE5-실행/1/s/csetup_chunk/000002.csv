@@ -1,0 +1,11 @@
+"0","library(binomial) "
+"2","
+Attaching package: ‘binomial’
+
+"
+"2","The following objects are masked _by_ ‘.GlobalEnv’:
+
+    bin_choose, bin_cumulative, bin_distribution,
+    bin_probability, bin_variable
+
+"

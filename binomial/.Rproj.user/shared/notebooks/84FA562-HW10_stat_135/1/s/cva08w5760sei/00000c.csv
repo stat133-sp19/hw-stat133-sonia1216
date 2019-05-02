@@ -1,0 +1,2 @@
+"0","data_residual<-data.frame(""residual""=summary(lm(chick_weight~egg_weight))$residual)"
+"0","data_residual%>%ggplot(aes(x=egg_weight, y=residual))+geom_point()"

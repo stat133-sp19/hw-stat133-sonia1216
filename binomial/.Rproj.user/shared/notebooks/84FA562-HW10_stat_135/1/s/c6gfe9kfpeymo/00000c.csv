@@ -1,0 +1,6 @@
+"0","data <- read.table(""chicks-1.txt"",sep = "" "", header=TRUE)"
+"0","egg_length<-data$el"
+"0","chick_weight<-data$cw"
+"0","egg_breadth<-data$eb"
+"0","egg_weight<-data$ew"
+"0","data"

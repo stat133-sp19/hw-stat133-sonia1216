@@ -1,0 +1,4 @@
+"0","mean_egg_length<-mean(egg_length)"
+"0","mean_chick_weight<-mean(chick_weight)"
+"0","sd_egg_length<-sd(egg_length)"
+"0","sd_chick_weight<-sd(chick_weight)"

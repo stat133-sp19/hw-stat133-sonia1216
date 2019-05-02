@@ -1,0 +1,1 @@
+"0","b1_hat<-(cov(egg_length, chick_weight)/var(egg_length))"

@@ -1,0 +1,1 @@
+"0","A_problem_dat%>%ggplot(aes(x=egg_length, y=chick_weight))+geom_point()+geom_smooth(method = lm)"

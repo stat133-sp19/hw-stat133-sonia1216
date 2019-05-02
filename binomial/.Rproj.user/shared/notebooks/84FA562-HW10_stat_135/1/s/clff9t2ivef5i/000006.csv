@@ -1,0 +1,4 @@
+"0","before<-tox$base"
+"0","after<-tox$month15"
+"0","diff=after-before"
+"0","qqnorm(diff);qqline(diff, col=2)"

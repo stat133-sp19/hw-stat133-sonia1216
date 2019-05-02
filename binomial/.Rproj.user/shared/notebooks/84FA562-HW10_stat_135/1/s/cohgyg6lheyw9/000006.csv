@@ -1,0 +1,5 @@
+"0","read.table(""women.txt"",sep = "" "", header=TRUE)
+"
+"2","Error in read.table(""women.txt"", sep = "" "", header = TRUE) : 
+  duplicate 'row.names' are not allowed
+"
